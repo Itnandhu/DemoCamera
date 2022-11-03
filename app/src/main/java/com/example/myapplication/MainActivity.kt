@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.ContentValues
 import android.content.Intent
@@ -17,16 +16,13 @@ import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var imageView: ImageView
     lateinit var button: Button
-    val REQUEST_IMAGE_CAPTURE = 100
-    lateinit var currentPhotoPath: String
+    private val REQUEST_IMAGE_CAPTURE = 100
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -49,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             imageView.setImageBitmap(imageBitmap)
             saveMediaToStorage(imageBitmap)
-        } else {
         }
     }
 
